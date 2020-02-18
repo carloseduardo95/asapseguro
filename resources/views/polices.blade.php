@@ -188,6 +188,7 @@
 
     function salvarPolice() {
         pol = {
+            id: $("#id").val(),
             inicio_vigencia: $("#inicio_vigencia").val(),
             fim_vigencia: $("#fim_vigencia").val(),
             placa: $("#placa").val(),
