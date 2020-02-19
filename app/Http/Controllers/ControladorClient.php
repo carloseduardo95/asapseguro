@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Client;
+use App\Models\Client;
+use Illuminate\Support\Facades\Redirect;
 
 class ControladorClient extends Controller
 {
@@ -37,7 +38,14 @@ class ControladorClient extends Controller
      */
     public function store(Request $request)
     {
-        $cli = new Client();
+        $cliente = Client::where('cpf', $request->input('cpf'))->first();
+
+        if (!empty($cliente)) {
+            //return response()->json(['data'=>'Cliente já existente na base de dados'],403);
+            return redirect('/clients')->with('msg', 'Já existe um cliente com este CPF no banco!');
+        }
+
+        $cli = new Client;
         $cli->nome = $request->input('nome');
         $cli->cpf = $request->input('cpf');
         $cli->cidade = $request->input('cidade');

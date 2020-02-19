@@ -17,10 +17,6 @@
         <a class="nav-link" href="/clients">Clientes </a>
       </li>
 
-      <li @if($current=="search") class="nav-item active" @else class="nav-item" @endif>
-        <a class="nav-link" href="/search">Consultar Apólices </a>
-      </li>
-
     </ul>
 
   </div>

@@ -20,5 +20,3 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/clients', 'ControladorClient@indexJson');
 
 Route::resource('/polices', 'ControladorPolice');
-
-Route::get('/search', 'ControladorSearch@consultaApolices');

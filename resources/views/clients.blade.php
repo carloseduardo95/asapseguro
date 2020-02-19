@@ -4,6 +4,15 @@
 <div class="card border">
     <div class="card-body">
         <h5 class="card-title">Cadastro de Clientes</h5>
+
+        @if(Session::has("msg"))
+            <div class="alert alert-danger">
+                <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+                <p>{{ Session::get('msg') }}</p>
+            </div>
+        @endif
+
+
 @if(count($clientes) > 0)
         <table class="table table-ordered table-hover">
             <thead>

@@ -19,19 +19,9 @@
                 <div class="card-body">
                     <h5 class="card-title">Cadastro de Clientes</h5>
                     <p class="card-text">
-                    Aqui voce cadastre os clientes
+                    Aqui voce cadastra os clientes
                     </p>
                     <a href="/clients" class="btn btn-primary">Cadastre os clientes</a>
-                </div>
-            </div>
-
-            <div class="card border border-primary">
-                <div class="card-body">
-                    <h5 class="card-title">Consultar Apólices</h5>
-                    <p class="card-text">
-                    Aqui voce pode consultar uma apólice
-                    </p>
-                    <a href="/search" class="btn btn-primary">Consultar Apólices</a>
                 </div>
             </div>
         </div>

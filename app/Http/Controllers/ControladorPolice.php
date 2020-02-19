@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Police;
+use App\Models\Police;
 
 class ControladorPolice extends Controller
 {
@@ -109,7 +109,7 @@ class ControladorPolice extends Controller
     public function destroy($id)
     {
         $pol = Police::find($id);
-        if(isset($pol)) {
+        if (isset($pol)) {
             $pol->delete();
             return response('OK', 200);
         }

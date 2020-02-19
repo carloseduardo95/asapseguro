@@ -14,6 +14,7 @@
                     <th>Placa</th>
                     <th>Valor</th>
                     <th>Cliente</th>
+                    <th>Status</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -112,6 +113,7 @@
     }
 
     function montarLinha(p) {
+        var status = this.getStatus(p.inicio_vigencia, p.fim_vigencia);
         var linha = "<tr>" +
             "<td>" + p.id + "</td>" +
             "<td>" + p.inicio_vigencia + "</td>" +
@@ -119,6 +121,7 @@
             "<td>" + p.placa + "</td>" +
             "<td>" + p.valor + "</td>" +
             "<td>" + p.client_id + "</td>" +
+            "<td>" + status + "</td>" +
             "<td>" +
                 '<button class="btn btn-sm btn-primary" onclick="editar(' + p.id +')"> Editar </button>' +
                 '<button class="btn btn-sm btn-danger" onclick="remover(' + p.id +')"> Apagar </button>' +
@@ -126,6 +129,22 @@
             "</tr>";
         return linha;
         //console.log(linha);
+    }
+
+    function getStatus(dateStart, dateEnd){
+        const date1 = new Date(dateStart);
+        const date2 = new Date(dateEnd);
+        const diffTime = Math.abs(date2 - date1);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        //console.log(diffDays);
+        switch (diffDays) {
+            case 0:
+                return 'Vencida';
+                break;
+            default:
+               return 'Restam '+ diffDays+ ' dias para o vencimento';
+                break;
+        }
     }
 
     function editar(id) {
